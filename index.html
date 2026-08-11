@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unduh Alat PDF - Pemisah, Kompres, & Gabung PDF</title>
+
+    <!-- Meta Tag Open Graph (Agar preview muncul juga saat link dibagikan ke WA/Medsos) -->
+    <meta property="og:title" content="Unduh Alat PDF Gratis" />
+    <meta property="og:description" content="Pisahkan, kompres, atau gabungkan berkas PDF secara langsung di peramban Anda." />
+    <meta property="og:image" content="preview-alat-pdf.png" />
+
+    <!-- Script Utama Google AdSense -->
+    <!-- GANTI 'ca-pub-XXXXXXXXXXXXXXXX' dengan Publisher ID AdSense Anda -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+     crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f7f6f0; /* Warna latar disesuaikan dengan tema gambar */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            max-width: 680px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e0d8;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #1a1a1a;
+        }
+        p.description {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .preview-box {
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fafafa;
+        }
+        .preview-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .ad-container {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px dashed #cccccc;
+            border-radius: 8px;
+            text-align: center;
+            min-height: 250px;
+        }
+        .timer-status {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 15px 0;
+            color: #444;
+            text-align: center;
+        }
+        .download-btn {
+            background-color: #0076ff;
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+        .download-btn:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+        .download-btn:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Alat PDF (Pemisah, Kompres, & Gabung)</h1>
+    <p class="description">
+        Aplikasi web praktis untuk mengolah berkas PDF secara lokal di peramban Anda tanpa perlu mengunggah berkas ke server luar.
+    </p>
+
+    <!-- PREVIEW GAMBAR BERKAS -->
+    <div class="preview-box">
+        <!-- Pastikan nama file gambar di repositori sesuai dengan attribute src -->
+        <img src="preview-alat-pdf.png" alt="Preview Tampilan Alat PDF">
+    </div>
+
+    <!-- IKLAN GOOGLE ADSENSE (BANNER/DISPLAY AD) -->
+    <div class="ad-container">
+        <!-- Unit Iklan AdSense -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"   /* GANTI DENGAN PUBLISHER ID ANDA */
+             data-ad-slot="1234567890"                  /* GANTI DENGAN AD SLOT ID ANDA */
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- STATUS HITUNGAN MUNDUR -->
+    <div class="timer-status" id="statusText">
+        Mohon tunggu <span id="timer">15</span> detik untuk mengaktifkan tombol unduh...
+    </div>
+
+    <!-- TOMBOL UNDUH -->
+    <button id="downloadBtn" class="download-btn" disabled>Unduh Berkas Sekarang</button>
+</div>
+
+<script>
+    // Waktu tunggu dalam detik
+    let timeLeft = 15; 
+
+    const timerElem = document.getElementById('timer');
+    const statusText = document.getElementById('statusText');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // GANTI URL DI BAWAH INI DENGAN LINK FILE UNDUHAN ANDA DI GITHUB RELEASES
+    const fileUrl = "https://github.com/midieaje/alatpdf/releases/download/v1.0.0/alat-pdf-offline.html";
+
+    // Fungsi Timer Hitung Mundur
+    const countdown = setInterval(() => {
+        timeLeft--;
+        timerElem.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            statusText.innerHTML = "✅ <b>Berkas siap diunduh! Silakan klik tombol di bawah.</b>";
+            downloadBtn.removeAttribute('disabled');
+        }
+    }, 1000);
+
+    // Event Klik Tombol Unduh
+    downloadBtn.addEventListener('click', () => {
+        window.location.href = fileUrl;
+    });
+</script>
+
+</body>
+</html>
